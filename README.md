@@ -1,5 +1,5 @@
 #### Klasterovanje
-<img width="500" src="https://raw.githubusercontent.com/matfija/Klasterovanje-PBMC/master/pomocno/GSM333056x.png"> <img width="500" src="https://raw.githubusercontent.com/matfija/Klasterovanje-PBMC/master/pomocno/GSM333056x_4nk.png">
+<img width="400" src="https://raw.githubusercontent.com/matfija/Klasterovanje-PBMC/master/pomocno/GSM333056x.png"> <img width="400" src="https://raw.githubusercontent.com/matfija/Klasterovanje-PBMC/master/pomocno/GSM333056x_4nk.png">
 
 ## Klasterovanje PBMC :page_facing_up:
 Seminarski rad na kursu Istraživanje podataka 2. Cilj je bio formirati i uporediti različite modele klasterovanja za skup podataka koji predstavlja ljudske mononuklearne ćelije periferne krvi (PBMC) i time utvrditi i prošiti znanje iz nenadgledanog mašinskog učenja i rada sa retkim (sparse) i velikim podacima (big data).
