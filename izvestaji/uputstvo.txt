@@ -1,0 +1,33 @@
+gen = ENSG u sirovim podacima
+ćelija = kolona u sirovim podacima
+
+########## priprema.py ##################################################
+1) Ukloniti sve redove iz datoteke GSM.... koji u koloni Index sadrže vrednosti koje se ne nalaze u koloni ENSG_ID konsultacione datoteke common_human_list.csv.
+
+2) U konsultacionoj datoteci SCT-10x-Metadata_readylist_merged-PBMC-tasks-short-Bgd.xlsx u redu koji ima vrednost atributa SAMPLE koja je jednaka prefiksu ulazne datoteke GSM...., odrediti vrednost u atributu GENOME.
+
+3) U ulaznoj datoteci zameniti sve vrednosti u koloni Index sa vrednostima dobijenim kada se umesto vrednosti u koloni Index stavi Exxxxxx#id_gena, gde su xxxxxxx nenula delovi identifikacije (sa kraja ENSG...), dok je  id_gena vrednost nađena u koloni Ensembl_GRCh38.p12_rel94 u common_human_list.csv (nazivi gena počinju sa #). Na primer, neka je data ulazna datoteka čiji je prefiks imena GSM2741551, i neka je vrednost u koloni Index ENSG00000163468. Tada se ova vrednost zamenjuje sa E163468#CCT3 jer je u   datoteci common_human_list.csv u redu gde se nalazi ENSG00000163468 vrednost u koloni jedanka #CCT3. Ako su datoteke već pretprocesirane, onda treba vratiti odgovarajući ENSG pomoću konsultacione datoteke. Ukoliko nije moguće jednoznačno ga odrediti (više ENSG-ova odgovara genu), taj red (kolona posle transponovanja) se briše.
+
+4) Nazivi kolona koji označavaju ćelije i koji su oblika AAACCTGAGCAGACTG-1 se zamenjuju rednim brojevima xxx_1, xxx_2, xxx_3,.... gde je xxx deo naziva uzorka GSM.... Na primer, ako je uzorak  GSM2741551 ćelije treba da budu označene sa GSM2741551_1, GSM2741551_2, GSM2741551_3... Ovo je bitno uraditi pre sledećih koraka.
+#########################################################################
+
+########## spajanje.py ##################################################
+5) Ovako dobijena datoteka se transponuje, tako da vrste u prvoj koloni sadrže redne brojeve ćelija, a nazivi kolona (atributi) su nazivi gena. Podaci u datoteci se normalizuju, ako je potrebno.
+
+6) Nova obrada po dogovoru:
+Zbir transkripata (broja ispoljavanja gena) u ćeliji treba da bude bar 1000, a broj nenula gena koji imaju te transkripte bar 500. To su vrste nakon transponovanja. Ako nešto od toga nije ispunjeno, ćelija se izbacuje.
+Ako neki od gena, kada se spoje sve datoteke, ima sve nule u koloni (nije ispoljen ni u jednoj ćeliji), iskljucuje se. To zapravo vazi i kada je broj nenula manji od p% (p - parametar), zasad p = 1%.
+SVE DATOTEKE MORAJU DA IMAJU ISTI BROJ GENA U ISTOM REDOSLEDU!!!!
+Izdvojiti (u obliku izveštaja) gene koji se razlikuju između datoteka jer su to atributi koji razlikuju grupe u rezultatima klasterovanja.
+#########################################################################
+
+########## ............ #################################################
+7) Uraditi klasterovanje svake datoteke pojedinačno i zajedno i uporediti dobijene rezultate.
+Unutar datoteka tražiti podelu na ćelije, a spojeno može i samo podelu na datoteke (razlika u cilju).
+Koristiti najmanje 5 metoda klasterovanja i CLUTO. 
+Probati metode za različit broj klastera. 
+OBAVEZNO uključiti različite mere za rastojanje.
+Dati komentar i vizuelizaciju rezultata.
+
+Dobar predlog: nad spojenim podacima primeniti faktorizaciju nenegativne matrice, a nad rezultatom toga spektralno klasterovanje zasnovano na najbližim susedima. Za vizuelizaciju svesti podatke na dve dimenzije primenom t-SNE.
+#########################################################################

@@ -1,0 +1,22 @@
+polazni skupovi:
+1. Pre         ->  (17712, 2082)
+2. Disc_Early  ->  (17712, 1592)
+3. Disc_Resp   ->  (17712, 4684)
+4. Disc_AR     ->  (17712, 4516)
+
+samo cesti ljudski geni, uz
+neophodna preimenovanja (p):
+1. Pre         ->  (16697, 2082)
+2. Disc_Early  ->  (16697, 1592)
+3. Disc_Resp   ->  (16697, 4684)
+4. Disc_AR     ->  (16697, 4516)
+
+celije sa dovoljno ispoljavanja
+(1000, 500) i geni bar 1% (t):
+1. Pre         ->  (  518, 7918)
+2. Disc_Early  ->  (  224, 7918)
+3. Disc_Resp   ->  ( 1122, 7918)
+4. Disc_AR     ->  (  782, 7918)
+
+spojeno (samo ispoljeni):
+GSM333056x     ->  ( 2646, 7918)
